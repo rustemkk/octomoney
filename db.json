@@ -1,0 +1,24 @@
+{
+  "accounts": [
+    {
+      "id": 0,
+      "name": "Cash Rustem",
+      "icon": "cash.png",
+      "initialBalance": 500,
+      "balance": 500
+    },
+    {
+      "name": "Cash Karina",
+      "icon": "cash.png",
+      "initialBalance": 0,
+      "balance": 0,
+      "id": 20
+    },
+    {
+      "name": "CASHHH",
+      "balance": 5000,
+      "initialBalance": 0,
+      "id": 21
+    }
+  ]
+}
