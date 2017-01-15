@@ -10,6 +10,7 @@ import MainLayout from './components/MainLayout';
 // Pages
 import Home from './components/HomePage';
 import Accounts from './components/AccountsPage';
+import Categories from './components/CategoriesPage';
 
 ReactDOM.render(
     <Provider store={store}>
@@ -18,6 +19,10 @@ ReactDOM.render(
                 <Route path="/" component={Home}/>
                 <Route path="accounts">
                     <IndexRoute component={Accounts}/>
+                    {/*<Route path=":accountId" component={Account}/>*/}
+                </Route>
+                <Route path="categories">
+                    <IndexRoute component={Categories}/>
                     {/*<Route path=":accountId" component={Account}/>*/}
                 </Route>
 

@@ -21,5 +21,22 @@
       "icon": "card.png",
       "id": 3
     }
+  ],
+  "categories": [
+    {
+      "name": "Vodka",
+      "icon": "drink.png",
+      "id": 1
+    },
+    {
+      "name": "Gasoline",
+      "icon": "gasolne.png",
+      "id": 2
+    },
+    {
+      "name": "Car",
+      "icon": "car.png",
+      "id": 3
+    }
   ]
 }

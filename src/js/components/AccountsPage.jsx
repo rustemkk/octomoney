@@ -1,10 +1,7 @@
 import React from "react"
 import {connect} from "react-redux"
 
-import {fetchAccounts} from "../actions/accountsActions"
-import {addAccount} from "../actions/accountsActions"
-import {updateAccount} from "../actions/accountsActions"
-import {deleteAccount} from "../actions/accountsActions"
+import {fetchAccounts, addAccount, updateAccount, deleteAccount} from "../actions/accountsActions"
 
 @connect((store) => {
     return {
