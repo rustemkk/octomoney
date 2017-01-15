@@ -1,12 +1,26 @@
 import React from "react"
 import ReactDOM from "react-dom"
 import {Provider} from "react-redux"
-
-import Layout from "./components/Layout"
+import {Router, Route, browserHistory, IndexRoute} from 'react-router';
 import store from "./store"
 
-const app = document.getElementById('app');
+// Layouts
+import MainLayout from './components/MainLayout';
 
-ReactDOM.render(<Provider store={store}>
-    <Layout />
-</Provider>, app);
+// Pages
+import Home from './components/HomePage';
+import Accounts from './components/AccountsPage';
+
+ReactDOM.render(
+    <Provider store={store}>
+        <Router history={browserHistory}>
+            <Route component={MainLayout}>
+                <Route path="/" component={Home}/>
+                <Route path="accounts">
+                    <IndexRoute component={Accounts}/>
+                    {/*<Route path=":accountId" component={Account}/>*/}
+                </Route>
+
+            </Route>
+        </Router>
+    </Provider>, document.getElementById('app'));

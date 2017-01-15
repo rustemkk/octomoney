@@ -17,7 +17,7 @@ export function fetchAccounts() {
  * @returns {{type: string, payload: *}}
  */
 export function addAccount(account) {
-    console.log("Adding account:", account);;
+    console.log("Adding account:", account);
     return {
         type: "ADD_ACCOUNT",
         payload: axios.post("http://localhost:4000/accounts", account)

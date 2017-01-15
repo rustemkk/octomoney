@@ -6,17 +6,13 @@ import {addAccount} from "../actions/accountsActions"
 import {updateAccount} from "../actions/accountsActions"
 import {deleteAccount} from "../actions/accountsActions"
 
-import AccountsList from "./accountsList"
-
 @connect((store) => {
     return {
         accounts: store.accounts.accounts
     };
 })
 export default class Layout extends React.Component {
-    // componentWillMount() {
-
-    fetchAccounts() {
+    componentWillMount() {
         this.props.dispatch(fetchAccounts());
     }
 
@@ -25,8 +21,8 @@ export default class Layout extends React.Component {
     }
 
     updateAccount(account) {
-        account.name= "Cashhhhh";
-        account.balance= "100";
+        account.name = "Cashhhhh updated";
+        account.balance = "100";
         this.props.dispatch(updateAccount(account));
     }
 
@@ -37,7 +33,9 @@ export default class Layout extends React.Component {
     render() {
         const {accounts} = this.props;
         if (!accounts.length) {
-            return <button onClick={this.fetchAccounts.bind(this)}>load accounts</button>;
+            return <div>
+                <button onClick={this.addAccount.bind(this)}>add new account</button>
+            </div>;
         } else {
             const mappedAccounts = this.props.accounts.map(account =>
                 <div key={account.id}>
@@ -58,17 +56,4 @@ export default class Layout extends React.Component {
             </div>;
         }
     }
-
-    // render() {
-    //     const {accounts} = this.props;
-    //     if (!accounts.length) {
-    //         return <button onClick={this.fetchAccounts.bind(this)}>load accounts</button>;
-    //     } else {
-    //         return <div>
-    //             <AccountsList accounts={accounts} deleteItem={this.deleteAccount}/>
-    //             <br/>
-    //             <button onClick={this.addAccount.bind(this)}>add new account</button>
-    //         </div>;
-    //     }
-    // }
 }
