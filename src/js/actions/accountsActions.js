@@ -32,7 +32,6 @@ export function addAccount(account) {
 export function updateAccount(account) {
     return {
         type: "UPDATE_ACCOUNT",
-        //TODO: is it wrong to concatenate the URL??
         payload: axios.put("http://localhost:4000/accounts/" + account.id, {account})
     }
 }
@@ -44,6 +43,7 @@ export function updateAccount(account) {
  */
 export function deleteAccount(id) {
     console.log("Deleting account:", id);
+    // TODO: find out how to properly pass id to reducer using axios in payload
     axios.delete("http://localhost:4000/accounts/" + id);
     return {
         type: "DELETE_ACCOUNT",

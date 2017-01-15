@@ -21,12 +21,10 @@ export default class Layout extends React.Component {
 
     addAccount() {
         this.props.dispatch(addAccount({name: "CASHHH", balance: 5000, initialBalance: 0}));
-        // this.props.dispatch(addAccount({name: "CASHHH", balance: 50000})).then(this.props.dispatch(fetchAccounts()));
     }
 
     deleteAccount(account) {
         this.props.dispatch(deleteAccount(account));
-        // this.props.dispatch(deleteAccount(account)).then(this.props.dispatch(fetchAccounts()));
     }
 
     render() {

@@ -13,12 +13,6 @@
       "initialBalance": 0,
       "balance": 0,
       "id": 20
-    },
-    {
-      "name": "CASHHH",
-      "balance": 5000,
-      "initialBalance": 0,
-      "id": 21
     }
   ]
 }

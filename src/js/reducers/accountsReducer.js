@@ -1,7 +1,7 @@
 export default function reducer(state = {
     accounts: [],
     fetching: false,
-    error: null,
+    error: null
 }, action) {
     switch (action.type) {
         case "FETCH_ACCOUNTS_PENDING": {
@@ -15,7 +15,7 @@ export default function reducer(state = {
                 ...state,
                 fetching: false,
                 error: action.payload
-            };git
+            };
         }
         case "FETCH_ACCOUNTS_FULFILLED": {
             return {
@@ -56,11 +56,33 @@ export default function reducer(state = {
         //     return {...state};
         // }
 
+        // case "DELETE_ACCOUNT_PENDING": {
+        //     return {
+        //         ...state,
+        //         fetching: true
+        //     };
+        // }
+        // case "DELETE_ACCOUNT_REJECTED": {
+        //     return {
+        //         ...state,
+        //         fetching: false,
+        //         error: action.payload
+        //     };
+        // }
+        // case "DELETE_ACCOUNT_FULFILLED": {
+        //     return {
+        //         ...state,
+        //         fetching: false,
+        //         // TODO: find out how to pass id from action
+        //         accounts: state.accounts.filter(account => account.id !== action.???)
+        //     };
+        // }
+
         case "DELETE_ACCOUNT": {
             return {
                 ...state,
                 accounts: state.accounts.filter(account => account.id !== action.payload)
-            }
+            };
         }
     }
     return state;
