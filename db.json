@@ -8,11 +8,32 @@
       "balance": 500
     },
     {
-      "name": "Cash Karina",
-      "icon": "cash.png",
+      "name": "Cashhhhh",
+      "balance": "100",
       "initialBalance": 0,
-      "balance": 0,
-      "id": 20
+      "icon": "cash.png",
+      "id": 25
+    },
+    {
+      "name": "Cashhhhh",
+      "balance": "100",
+      "initialBalance": 0,
+      "icon": "cash.png",
+      "id": 26
+    },
+    {
+      "name": "CASHHH",
+      "balance": 5000,
+      "initialBalance": 0,
+      "icon": "cash.png",
+      "id": 27
+    },
+    {
+      "name": "CASHHH",
+      "balance": 5000,
+      "initialBalance": 0,
+      "icon": "cash.png",
+      "id": 28
     }
   ]
 }

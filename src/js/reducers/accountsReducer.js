@@ -46,15 +46,26 @@ export default function reducer(state = {
             };
         }
 
-        // case "UPDATE_ACCOUNT_PENDING": {
-        //     return {...state};
-        // }
-        // case "UPDATE_ACCOUNT_REJECTED": {
-        //     return {...state, error: action.payload};
-        // }
-        // case "UPDATE_ACCOUNT_FULFILLED": {
-        //     return {...state};
-        // }
+        case "UPDATE_ACCOUNT_PENDING": {
+            return {
+                ...state,
+                fetching: true
+            };
+        }
+        case "UPDATE_ACCOUNT_REJECTED": {
+            return {
+                ...state,
+                fetching: false,
+                error: action.payload
+            };
+        }
+        case "UPDATE_ACCOUNT_FULFILLED": {
+            return {
+                ...state,
+                fetching: false,
+                accounts: [...state.accounts, action.payload.data]
+            };
+        }
 
         // case "DELETE_ACCOUNT_PENDING": {
         //     return {

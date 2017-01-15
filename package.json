@@ -1,6 +1,6 @@
 {
   "name": "octomoney-front",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "",
   "main": "webpack.config.js",
   "dependencies": {
@@ -22,14 +22,16 @@
     "redux-promise-middleware": "^3.2.0",
     "redux-thunk": "^2.1.0",
     "webpack": "^1.12.9",
-    "webpack-dev-server": "^1.14.1"
+    "webpack-dev-server": "^1.14.1",
+    "chai": "^3.5.0",
+    "mocha": "^3.2.0"
   },
   "devDependencies": {
     "json-server": "^0.9.3"
   },
   "scripts": {
     "dev": "webpack-dev-server --content-base src --colors --inline --hot",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "mocha --compilers js:babel-core/register",
     "rest": "json-server -p 4000 db.json"
   },
   "author": "Rustem Islamuratov",

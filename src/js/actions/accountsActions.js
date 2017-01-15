@@ -32,7 +32,7 @@ export function addAccount(account) {
 export function updateAccount(account) {
     return {
         type: "UPDATE_ACCOUNT",
-        payload: axios.put("http://localhost:4000/accounts/" + account.id, {account})
+        payload: axios.put("http://localhost:4000/accounts/" + account.id, account)
     }
 }
 

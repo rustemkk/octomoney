@@ -3,6 +3,7 @@ import {connect} from "react-redux"
 
 import {fetchAccounts} from "../actions/accountsActions"
 import {addAccount} from "../actions/accountsActions"
+import {updateAccount} from "../actions/accountsActions"
 import {deleteAccount} from "../actions/accountsActions"
 
 import AccountsList from "./accountsList"
@@ -20,11 +21,17 @@ export default class Layout extends React.Component {
     }
 
     addAccount() {
-        this.props.dispatch(addAccount({name: "CASHHH", balance: 5000, initialBalance: 0}));
+        this.props.dispatch(addAccount({name: "CASHHH", balance: 5000, initialBalance: 0, icon: "cash.png"}));
+    }
+
+    updateAccount(account) {
+        account.name= "Cashhhhh";
+        account.balance= "100";
+        this.props.dispatch(updateAccount(account));
     }
 
     deleteAccount(account) {
-        this.props.dispatch(deleteAccount(account));
+        this.props.dispatch(deleteAccount(account.id));
     }
 
     render() {
@@ -34,8 +41,13 @@ export default class Layout extends React.Component {
         } else {
             const mappedAccounts = this.props.accounts.map(account =>
                 <div key={account.id}>
-                    {account.name} - {account.balance}
-                    <button onClick={() => this.deleteAccount(account.id)}>
+                    {account.id} - {account.name} - {account.balance} - {account.initialBalance} - {account.icon}
+                    &nbsp;
+                    <button onClick={() => this.updateAccount(account)}>
+                        update
+                    </button>
+                    &nbsp;
+                    <button onClick={() => this.deleteAccount(account)}>
                         delete
                     </button>
                 </div>);
