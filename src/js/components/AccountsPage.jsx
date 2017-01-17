@@ -14,7 +14,12 @@ export default class Layout extends React.Component {
     }
 
     addAccount() {
-        this.props.dispatch(addAccount({name: "CASHHH", balance: 5000, initialBalance: 0, icon: "cash.png"}));
+        this.props.dispatch(addAccount({
+            name: this.refs.name.value,
+            balance: this.refs.balance.value,
+            initialBalance: this.refs.initialBalance.value,
+            icon: this.refs.icon.value
+        }));
     }
 
     updateAccount(account) {
@@ -49,6 +54,10 @@ export default class Layout extends React.Component {
             return <div>
                 {mappedAccounts}
                 <br/>
+                <input ref="name" defaultValue=''></input>
+                <input ref="balance" defaultValue=''></input>
+                <input ref="initialBalance" defaultValue=''></input>
+                <input ref="icon" defaultValue=''></input>
                 <button onClick={this.addAccount.bind(this)}>add new account</button>
             </div>;
         }
