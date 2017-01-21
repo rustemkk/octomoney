@@ -63,7 +63,11 @@ export default function reducer(state = {
             return {
                 ...state,
                 fetching: false,
-                accounts: [...state.accounts, action.payload.data]
+                // TODO: find the reason of non-reloading data
+                accounts: [
+                    ...state.accounts.filter(account => account.id !== action.payload.data.id),
+                    action.payload.data
+                ].sort((a, b)=>a.id>b.id)
             };
         }
 

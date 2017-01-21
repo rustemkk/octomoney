@@ -5,12 +5,12 @@ import {Router, Route, browserHistory, IndexRoute} from 'react-router';
 import store from "./store"
 
 // Layouts
-import MainLayout from './components/MainLayout';
+import MainLayout from './containers/MainLayout';
 
 // Pages
-import Home from './components/HomePage';
-import Accounts from './components/AccountsPage';
-import Categories from './components/CategoriesPage';
+import Home from './containers/HomePage';
+import Accounts from './containers/AccountsPage';
+import Categories from './containers/CategoriesPage';
 
 ReactDOM.render(
     <Provider store={store}>
