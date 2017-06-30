@@ -14,6 +14,7 @@ class AccountsPage extends React.Component {
 
   render() {
     let {accounts} = this.props;
+    const {deleteAccount} = this.props.accountsActions;
 
     if (_.isEmpty(accounts)) {
       return <div>
@@ -21,7 +22,7 @@ class AccountsPage extends React.Component {
       </div>;
     }
 
-    accounts = _.map(accounts, account => <AccountsListItem key={account.id} account={account}/>);
+    accounts = _.map(accounts, account => <AccountsListItem key={account.id} account={account} deleteAccount={deleteAccount}/>);
     return <div>
       {accounts}
     </div>;

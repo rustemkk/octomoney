@@ -74,34 +74,14 @@ export default function reducer(state = initialState, action) {
     //   };
     // }
     //
-    // // case "DELETE_ACCOUNT_PENDING": {
-    // //     return {
-    // //         ...state,
-    // //         fetching: true
-    // //     };
-    // // }
-    // // case "DELETE_ACCOUNT_REJECTED": {
-    // //     return {
-    // //         ...state,
-    // //         fetching: false,
-    // //         error: action.payload
-    // //     };
-    // // }
-    // // case "DELETE_ACCOUNT_FULFILLED": {
-    // //     return {
-    // //         ...state,
-    // //         fetching: false,
-    // //         // TODO: find out how to pass id from action
-    // //         accounts: state.accounts.filter(account => account.id !== action.???)
-    // //     };
-    // // }
-    //
-    // case 'DELETE_ACCOUNT': {
-    //   return {
-    //     ...state,
-    //     accounts: state.accounts.filter(account => account.id !== action.payload)
-    //   };
-    // }
+
+
+    case 'DELETE_ACCOUNT': {
+      return {
+        ...state,
+        accounts: state.accounts.filter(account => account.id !== action.payload)
+      };
+    }
   }
   return state;
 }

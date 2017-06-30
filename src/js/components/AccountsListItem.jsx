@@ -11,7 +11,7 @@ class AccountsListItem extends React.Component {
 
   editAccount() {
     this.setState({
-      isEditing: true,
+      isEditing: true
       // account: this.state.account
     });
   }
@@ -26,6 +26,10 @@ class AccountsListItem extends React.Component {
   //   });
   //   this.setState({isEditing: false});
   // }
+
+  deleteAccount() {
+    this.props.deleteAccount(this.state.account);
+  }
 
   render() {
     const {account} = this.state;
@@ -44,12 +48,12 @@ class AccountsListItem extends React.Component {
         {account.id} - {account.name} - {account.balance} - {account.initialBalance} - {account.icon}
         {/*&nbsp;*/}
         {/*<button onClick={this.editAccount.bind(this)}>*/}
-          {/*edit*/}
+        {/*edit*/}
         {/*</button>*/}
-        {/*&nbsp;*/}
-        {/*<button onClick={this.props.deleteAccount.bind(this, account)}>*/}
-          {/*delete*/}
-        {/*</button>*/}
+        &nbsp;
+        <button onClick={::this.deleteAccount}>
+          delete
+        </button>
       </div>;
     }
   }

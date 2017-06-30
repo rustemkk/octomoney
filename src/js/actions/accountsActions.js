@@ -23,3 +23,16 @@ export const getAccounts = () => {
       });
   };
 };
+
+export const deleteAccount = (account) => {
+  return (dispatch) => {
+    axios.delete('http://localhost:4000/accounts/' + account.id)
+      .then(response => {
+        console.log(response);
+        dispatch({
+          type: 'DELETE_ACCOUNT',
+          payload: account.id
+        });
+      });
+  };
+};
