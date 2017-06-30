@@ -1,31 +1,26 @@
-import React from "react"
-import ReactDOM from "react-dom"
-import {Provider} from "react-redux"
+import React from 'react';
+import ReactDOM from 'react-dom';
+import {Provider} from 'react-redux';
 import {Router, Route, browserHistory, IndexRoute} from 'react-router';
-import store from "./store"
 
-// Layouts
-import MainLayout from './containers/MainLayout';
-
-// Pages
-import Home from './containers/HomePage';
+import NotFound from './components/NotFound';
 import Accounts from './containers/AccountsPage';
-import Categories from './containers/CategoriesPage';
+import Home from './containers/HomePage';
+import MainLayout from './containers/MainLayout';
+import store from './store';
 
 ReactDOM.render(
-    <Provider store={store}>
-        <Router history={browserHistory}>
-            <Route component={MainLayout}>
-                <Route path="/" component={Home}/>
-                <Route path="accounts">
-                    <IndexRoute component={Accounts}/>
-                    {/*<Route path=":accountId" component={Account}/>*/}
-                </Route>
-                <Route path="categories">
-                    <IndexRoute component={Categories}/>
-                    {/*<Route path=":accountId" component={Account}/>*/}
-                </Route>
-
-            </Route>
-        </Router>
-    </Provider>, document.getElementById('app'));
+  <Provider store={store}>
+    <Router history={browserHistory}>
+      <Route path='/' component={MainLayout}>
+        <IndexRoute component={Home}/>
+        <Route path="/accounts">
+          <IndexRoute component={Accounts}/>
+          {/*<Route path=":accountId" component={Account}/>*/}
+        </Route>
+      </Route>
+      <Route path='*' component={NotFound}/>
+    </Router>
+  </Provider>,
+  document.getElementById('app')
+);

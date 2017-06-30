@@ -1,64 +1,40 @@
-import React from "react"
-import {connect} from "react-redux"
+import * as _ from 'lodash';
+import React from 'react';
+import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
 
-import store from "../store"
+import * as accountsActions from '../actions/accountsActions';
+import AccountsListItem from '../components/AccountsListItem';
 
-import AccountsListItem from "../components/AccountsListItem"
-
-import {fetchAccounts, addAccount, updateAccount, deleteAccount} from "../actions/accountsActions"
 
 class AccountsPage extends React.Component {
-    componentWillMount() {
-        store.dispatch(fetchAccounts());
+  componentWillMount() {
+    this.props.accountsActions.getAccounts();
+  }
+
+  render() {
+    let {accounts} = this.props;
+
+    if (_.isEmpty(accounts)) {
+      return <div>
+        You have no accounts.
+      </div>;
     }
 
-    addAccount() {
-        store.dispatch(addAccount({
-            name: this.refs.name.value,
-            balance: this.refs.balance.value,
-            initialBalance: this.refs.initialBalance.value,
-            icon: this.refs.icon.value
-        }));
-    }
-
-    updateAccount(account) {
-        store.dispatch(updateAccount(account));
-    }
-
-    deleteAccount(account) {
-        store.dispatch(deleteAccount(account));
-    }
-
-    render() {
-        const {accounts} = this.props;
-        if (!accounts.length) {
-            return <div>
-                <button onClick={this.addAccount.bind(this)}>add new account</button>
-            </div>;
-        } else {
-            const mappedAccounts = this.props.accounts.map(account =>
-                <AccountsListItem
-                    key={account.id}
-                    account={account}
-                    updateAccount={this.updateAccount}
-                    deleteAccount={this.deleteAccount}
-                />);
-
-            return <div>
-                {mappedAccounts}
-                <br/>
-                <input ref="name" defaultValue=''></input>
-                <input ref="balance" defaultValue=''></input>
-                <input ref="initialBalance" defaultValue=''></input>
-                <input ref="icon" defaultValue=''></input>
-                <button onClick={this.addAccount.bind(this)}>add new account</button>
-            </div>;
-        }
-    }
+    accounts = _.map(accounts, account => <AccountsListItem key={account.id} account={account}/>);
+    return <div>
+      {accounts}
+    </div>;
+  }
 }
 
-const mapStateToProps = (store) => ({
-    accounts: store.accounts.accounts
+const mapStateToProps = state => ({
+  accounts: state.accounts.accounts
 });
 
-export default connect(mapStateToProps)(AccountsPage);
+const mapDispatchToProps = dispatch => ({
+  accountsActions: bindActionCreators(accountsActions, dispatch)
+});
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(AccountsPage);

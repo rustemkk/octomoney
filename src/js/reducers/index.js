@@ -1,9 +1,8 @@
-import {combineReducers} from "redux"
+import {combineReducers} from 'redux';
 
-import accounts from "./accountsReducer"
-import categories from "./categoriesReducer"
+import accounts from './accountsReducer';
+
 
 export default combineReducers({
-    accounts,
-    categories
-})
+  accounts
+});
