@@ -1,0 +1,22 @@
+.App {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  font-family: 'Inika', Helvetica, sans-serif;;
+  font-size: 20pt;
+
+
+  .MainMenu {
+    width: 100%;
+    background-color: #ABABAB;
+    height: 40px;
+    max-height: 40px;
+  }
+
+  .MainContainer {
+    width: 100%;
+    height: 100%;
+  }
+}

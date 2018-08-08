@@ -13,13 +13,6 @@
       "initialBalance": 0,
       "icon": "card.png",
       "id": 2
-    },
-    {
-      "name": "Visa",
-      "balance": 1200,
-      "initialBalance": 0,
-      "icon": "card.png",
-      "id": 3
     }
   ],
   "categories": [
